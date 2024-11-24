@@ -12,6 +12,7 @@ namespace QuanLyBenhVien
     {
         protected void ApplicationStart(object sender, StartupEventArgs e)
         {
+            
             var loginView = new LoginView();
             loginView.Show();
             loginView.IsVisibleChanged += (s, ev) =>
@@ -23,6 +24,7 @@ namespace QuanLyBenhVien
                     loginView.Close();
                 }
             };
+
         }
     }
 

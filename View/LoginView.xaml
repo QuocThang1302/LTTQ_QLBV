@@ -208,7 +208,7 @@
                             FontFamily="Montserrat"
                             FontSize="16"
                             Cursor="Hand"
-                            Margin="0,25,0,0">
+                            Margin="0,25,0,0" Click="btnLogin_Click">
                         <Bold>ĐĂNG NHẬP</Bold>
 
                         <Button.Style>

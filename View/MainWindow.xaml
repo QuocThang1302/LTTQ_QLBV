@@ -155,7 +155,7 @@
                                 </Expander>
 
                                 <Expander Style="{StaticResource CustomExpander}" Header="Bệnh nhân"/>
-
+     
                                 <Expander Style="{StaticResource CustomExpander}" Header="Thông tin">
                                     <StackPanel Background="Transparent">
                                         <Button Content="Bệnh" Style="{StaticResource SubMenuButton}"/>
@@ -216,6 +216,7 @@
                             <fa:IconImage Icon="WindowMinimize" Style="{StaticResource controlbarIcon}"/>
                         </Button>
                     </StackPanel>
+                    
                 </Grid>
             </Border>
         </Grid>
