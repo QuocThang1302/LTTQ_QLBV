@@ -10,7 +10,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Border Background="{TemplateBinding Background}"
-                            CornerRadius="4">
+                        CornerRadius="4">
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                     </Border>
                 </ControlTemplate>
@@ -24,11 +24,115 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-    
+
     <!-- Control bar icon-->
     <Style x:Key="controlbarIcon" TargetType="fa:IconImage">
         <Setter Property="Foreground" Value="White" />
         <Setter Property="Width" Value="10" />
         <Setter Property="Height" Value="10" />
+    </Style>
+
+    <!-- Style cho Button trong submenu -->
+    <Style x:Key="SubMenuButton" TargetType="RadioButton">
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Width" Value="200" />
+        <Setter Property="Margin" Value="-5,0,0,5" />
+        <Setter Property="Background" Value="#6CABEA"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RadioButton">
+                    <Border Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    CornerRadius="0,20,20,0"
+                    BorderThickness="4,0,0,0">
+                        <ContentPresenter HorizontalAlignment="Left" 
+                                    VerticalAlignment="Center"
+                                    Margin="30,0,0,0"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Margin" Value="0,0,0,5"/>
+                            <Setter Property="Background" Value="#1E8CFB"/>
+                            <Setter Property="Foreground" Value="Black"/>
+                            <Setter Property="BorderBrush" Value="#03045e"/>
+                        </Trigger>
+
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Margin" Value="0,0,0,5"/>
+                            <Setter Property="Background" Value="#1E8CFB"/>
+                            <Setter Property="Foreground" Value="Black"/>
+                            <Setter Property="BorderBrush" Value="#03045e"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Style cho Icon trong Menu-->
+    <Style x:Key="MenuIcon" TargetType="fa:IconImage">
+        <Setter Property="Foreground" Value="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType=RadioButton}}" />
+        <Setter Property="Width" Value="30" />
+        <Setter Property="Height" Value="30" />
+        <Setter Property="Margin" Value="5,0,10,0" />
+    </Style>
+
+    <!-- Style cho TextBlock trong Menu-->
+    <Style x:Key="MenuText" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType=RadioButton}}" />
+        <Setter Property="FontFamily" Value="Montserrat" />
+        <Setter Property="FontWeight" Value="Medium" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+
+    <!-- Style cho Icon trong SubMenu-->
+    <Style x:Key="SubMenuIcon" TargetType="fa:IconImage">
+        <Setter Property="Foreground" Value="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType=RadioButton}}" />
+        <Setter Property="Width" Value="20" />
+        <Setter Property="Height" Value="20" />
+        <Setter Property="Margin" Value="10,0,10,0" />
+    </Style>
+
+    <!-- Style cho TextBlock trong SubMenu-->
+    <Style x:Key="SubMenuText" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType=RadioButton}}" />
+        <Setter Property="FontFamily" Value="Montserrat" />
+        <Setter Property="FontWeight" Value="Medium" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+
+    <!-- user icon button-->
+    <Style x:Key="userIconButton" TargetType="Button">
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Width" Value="30" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="LightGray" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{Binding Path=Tag, RelativeSource={RelativeSource Self}}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!-- Control bar icon-->
+    <Style x:Key="userIcon" TargetType="fa:IconImage">
+        <Setter Property="Foreground" Value="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType=Button}}" />
+        <Setter Property="Width" Value="16" />
+        <Setter Property="Height" Value="16" />
     </Style>
 </ResourceDictionary>

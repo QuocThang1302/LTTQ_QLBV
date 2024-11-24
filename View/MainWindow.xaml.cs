@@ -54,7 +54,7 @@ namespace QuanLyBenhVien
 
         private void HeaderButton_Click(object sender, RoutedEventArgs e)
         {
-            var button = sender as Button;
+            var button = sender as RadioButton;
             var expander = button.TemplatedParent as Expander;
             expander.IsExpanded = !expander.IsExpanded;
         }

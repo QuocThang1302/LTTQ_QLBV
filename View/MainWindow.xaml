@@ -17,88 +17,68 @@
     <viewModel:MainViewModel />
 </Window.DataContext>
 
-<Window.Resources>
-    <!-- Style cho Expander - ẩn mũi tên -->
-    <Style x:Key="CustomExpander" TargetType="Expander">
-        <Setter Property="Width" Value="260" />
-        <Setter Property="HorizontalAlignment" Value="Left" />
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="Expander">
-                    <DockPanel>
-                        <Button x:Name="HeaderButton"
+    <Window.Resources>
+        <!-- Style cho Expander - ẩn mũi tên -->
+        <Style x:Key="CustomExpander" TargetType="Expander">
+            <Setter Property="Width" Value="260" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Expander">
+                        <DockPanel>
+                            <RadioButton x:Name="HeaderButton"
                                     DockPanel.Dock="Top"
                                     Height="40"
                                     Margin="-5,0,0,5"
                                     Background="#6CABEA"
-                                    BorderThickness="0"
                                     Foreground="Black"
-                                    FontSize="16"
                                     BorderBrush="Transparent"
                                     Click="HeaderButton_Click">
-                            <ContentPresenter ContentSource="Header" 
-                                                  HorizontalAlignment="Left" 
-                                                  Margin="20,0,0,0"/>
-                            <Button.Template>
-                                <ControlTemplate TargetType="Button">
-                                    <Border Background="{TemplateBinding Background}"
+                                <ContentPresenter ContentSource="Header" 
+                                              HorizontalAlignment="Left" 
+                                              Margin="20,0,0,0"/>
+                                <RadioButton.Template>
+                                    <ControlTemplate TargetType="RadioButton">
+                                        <Border Background="{TemplateBinding Background}"
                                                 BorderBrush="{TemplateBinding BorderBrush}"
                                                 BorderThickness="4,0,0,0"
                                                 CornerRadius="0,20,20,0">
-                                        <ContentPresenter VerticalAlignment="Center"/>
-                                    </Border>
-                                    <ControlTemplate.Triggers>
-                                        <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter Property="Background" Value="#1E8CFB"/>
-                                        </Trigger>
-                                    </ControlTemplate.Triggers>
-                                </ControlTemplate>
-                            </Button.Template>
-                        </Button>
-                        <ContentPresenter x:Name="ExpanderContent"
+                                            <ContentPresenter VerticalAlignment="Center"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Margin" Value="0,0,0,5"/>
+                                                <Setter Property="Background" Value="#1E8CFB"/>
+                                                <Setter Property="Foreground" Value="Black"/>
+                                                <Setter Property="BorderBrush" Value="#03045e"/>
+                                            </Trigger>
+
+                                            <Trigger Property="IsChecked" Value="True">
+                                                <Setter Property="Margin" Value="0,0,0,5"/>
+                                                <Setter Property="Background" Value="#1E8CFB"/>
+                                                <Setter Property="Foreground" Value="Black"/>
+                                                <Setter Property="Background" Value="#03045e"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </RadioButton.Template>
+                            </RadioButton>
+                            <ContentPresenter x:Name="ExpanderContent"
                                             DockPanel.Dock="Bottom"
                                             Content="{TemplateBinding Content}"
                                             Visibility="Collapsed"/>
-                    </DockPanel>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsExpanded" Value="True">
-                            <Setter TargetName="ExpanderContent" Property="Visibility" Value="Visible"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
+                        </DockPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsExpanded" Value="True">
+                                <Setter TargetName="ExpanderContent" Property="Visibility" Value="Visible"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
-    <!-- Style cho Button trong submenu -->
-    <Style x:Key="SubMenuButton" TargetType="Button">
-        <Setter Property="Height" Value="30"/>
-        <Setter Property="Width" Value="200" />
-        <Setter Property="Margin" Value="0,0,0,5" />
-        <Setter Property="FontSize" Value="14" />
-        <Setter Property="Background" Value="#6CABEA"/>
-        <Setter Property="Foreground" Value="White"/>
-        <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="HorizontalAlignment" Value="Left" />
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="Button">
-                    <Border Background="{TemplateBinding Background}"
-                                CornerRadius="0,20,20,0">
-                        <ContentPresenter HorizontalAlignment="Left" 
-                                            VerticalAlignment="Center"
-                                            Margin="30,0,0,0"/>
-                    </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="#1E8CFB"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-</Window.Resources>
+    </Window.Resources>
 
     <Border CornerRadius="10"
             BorderThickness="1">
@@ -131,38 +111,128 @@
                                TextAlignment="Center"
                                Margin="0,5,0,30"/>
 
-                    <Grid>
+                    <Grid Height="Auto">
                         <ScrollViewer VerticalScrollBarVisibility="Hidden"
                                       HorizontalScrollBarVisibility="Disabled"
                                       Height="465">
                             <StackPanel>
-                                <Expander Style="{StaticResource CustomExpander}" Header="Trang chủ"/>
+                                <Expander Style="{StaticResource CustomExpander}">
+                                    <Expander.Header>
+                                        <StackPanel Orientation="Horizontal">
+                                            <fa:IconImage Icon="Home" Style="{StaticResource MenuIcon}" />
+                                            <TextBlock Text="Trang chủ" Style="{StaticResource MenuText}" />
+                                        </StackPanel>
+                                    </Expander.Header>
+                                </Expander>
 
-                                <Expander Style="{StaticResource CustomExpander}" Header="Nhân viên">
+                                <Expander Style="{StaticResource CustomExpander}">
+                                    <Expander.Header>
+                                        <StackPanel Orientation="Horizontal" >
+                                            <fa:IconImage Icon="HospitalUser" Style="{StaticResource MenuIcon}" />
+                                            <TextBlock Text="Nhân viên" Style="{StaticResource MenuText}" />
+                                        </StackPanel>
+                                    </Expander.Header>
+
                                     <StackPanel Background="Transparent">
-                                        <Button Content="Thông tin" Style="{StaticResource SubMenuButton}"/>
-                                        <Button Content="Lịch trực" Style="{StaticResource SubMenuButton}"/>
-                                        <Button Content="Lịch hẹn khám" Style="{StaticResource SubMenuButton}"/>
-                                        <Button Content="Khoa" Style="{StaticResource SubMenuButton}"/>
+                                        <RadioButton Style="{StaticResource SubMenuButton}">
+                                            <StackPanel Orientation="Horizontal">
+                                                <fa:IconImage Icon="IdCard" Style="{StaticResource SubMenuIcon}" />
+                                                <TextBlock Text="Thông tin" Style="{StaticResource SubMenuText}" />
+                                            </StackPanel>
+                                        </RadioButton>
+                                        <RadioButton Style="{StaticResource SubMenuButton}">
+                                            <StackPanel Orientation="Horizontal">
+                                                <fa:IconImage Icon="CalendarDays" Style="{StaticResource SubMenuIcon}" />
+                                                <TextBlock Text="Lịch trực" Style="{StaticResource SubMenuText}" />
+                                            </StackPanel>
+                                        </RadioButton>
+                                        <RadioButton Style="{StaticResource SubMenuButton}">
+                                            <StackPanel Orientation="Horizontal">
+                                                <fa:IconImage Icon="CalendarCheck" Style="{StaticResource SubMenuIcon}" />
+                                                <TextBlock Text="Lịch hẹn khám" Style="{StaticResource SubMenuText}" />
+                                            </StackPanel>
+                                        </RadioButton>
+                                        <RadioButton Style="{StaticResource SubMenuButton}">
+                                            <StackPanel Orientation="Horizontal">
+                                                <fa:IconImage Icon="Users" Style="{StaticResource SubMenuIcon}" />
+                                                <TextBlock Text="Khoa" Style="{StaticResource SubMenuText}" />
+                                            </StackPanel>
+                                        </RadioButton>
                                     </StackPanel>
                                 </Expander>
 
-                                <Expander Style="{StaticResource CustomExpander}" Header="Điều trị">
+                                <Expander Style="{StaticResource CustomExpander}">
+                                    <Expander.Header>
+                                        <StackPanel Orientation="Horizontal" >
+                                            <fa:IconImage Icon="Syringe" Style="{StaticResource MenuIcon}" />
+                                            <TextBlock Text="Điều trị" Style="{StaticResource MenuText}" />
+                                        </StackPanel>
+                                    </Expander.Header>
+
                                     <StackPanel Background="Transparent">
-                                        <Button Content="Bệnh án" Style="{StaticResource SubMenuButton}"/>
-                                        <Button Content="Khám bệnh" Style="{StaticResource SubMenuButton}"/>
-                                        <Button Content="Đơn thuốc" Style="{StaticResource SubMenuButton}"/>
+                                        <RadioButton Style="{StaticResource SubMenuButton}">
+                                            <StackPanel Orientation="Horizontal">
+                                                <fa:IconImage Icon="FileMedical" Style="{StaticResource SubMenuIcon}" />
+                                                <TextBlock Text="Bệnh án" Style="{StaticResource SubMenuText}" />
+                                            </StackPanel>
+                                        </RadioButton>
+                                        <RadioButton Style="{StaticResource SubMenuButton}">
+                                            <StackPanel Orientation="Horizontal">
+                                                <fa:IconImage Icon="FilePrescription" Style="{StaticResource SubMenuIcon}" />
+                                                <TextBlock Text="Khám bệnh" Style="{StaticResource SubMenuText}" />
+                                            </StackPanel>
+                                        </RadioButton>
+                                        <RadioButton Style="{StaticResource SubMenuButton}">
+                                            <StackPanel Orientation="Horizontal">
+                                                <fa:IconImage Icon="HouseMedical" Style="{StaticResource SubMenuIcon}" />
+                                                <TextBlock Text="Đơn thuốc" Style="{StaticResource SubMenuText}" />
+                                            </StackPanel>
+                                        </RadioButton>
                                     </StackPanel>
                                 </Expander>
 
-                                <Expander Style="{StaticResource CustomExpander}" Header="Bệnh nhân"/>
+                                <Expander Style="{StaticResource CustomExpander}">
+                                    <Expander.Header>
+                                        <StackPanel Orientation="Horizontal">
+                                            <fa:IconImage Icon="BedPulse" Style="{StaticResource MenuIcon}" />
+                                            <TextBlock Text="Bệnh nhân" Style="{StaticResource MenuText}" />
+                                        </StackPanel>
+                                    </Expander.Header>
+                                </Expander>
 
-                                <Expander Style="{StaticResource CustomExpander}" Header="Thông tin">
+                                <Expander Style="{StaticResource CustomExpander}">
+                                    <Expander.Header>
+                                        <StackPanel Orientation="Horizontal" >
+                                            <fa:IconImage Icon="HospitalUser" Style="{StaticResource MenuIcon}" />
+                                            <TextBlock Text="Thông tin" Style="{StaticResource MenuText}" />
+                                        </StackPanel>
+                                    </Expander.Header>
+
                                     <StackPanel Background="Transparent">
-                                        <Button Content="Bệnh" Style="{StaticResource SubMenuButton}"/>
-                                        <Button Content="Thuốc" Style="{StaticResource SubMenuButton}"/>
-                                        <Button Content="Vật dụng" Style="{StaticResource SubMenuButton}"/>
-                                        <Button Content="Hóa đơn" Style="{StaticResource SubMenuButton}"/>
+                                        <RadioButton Style="{StaticResource SubMenuButton}">
+                                            <StackPanel Orientation="Horizontal">
+                                                <fa:IconImage Icon="VirusCovid" Style="{StaticResource SubMenuIcon}" />
+                                                <TextBlock Text="Bệnh" Style="{StaticResource SubMenuText}" />
+                                            </StackPanel>
+                                        </RadioButton>
+                                        <RadioButton Style="{StaticResource SubMenuButton}">
+                                            <StackPanel Orientation="Horizontal">
+                                                <fa:IconImage Icon="Capsules" Style="{StaticResource SubMenuIcon}" />
+                                                <TextBlock Text="Thuốc" Style="{StaticResource SubMenuText}" />
+                                            </StackPanel>
+                                        </RadioButton>
+                                        <RadioButton Style="{StaticResource SubMenuButton}">
+                                            <StackPanel Orientation="Horizontal">
+                                                <fa:IconImage Icon="Microscope" Style="{StaticResource SubMenuIcon}" />
+                                                <TextBlock Text="Vật dụng" Style="{StaticResource SubMenuText}" />
+                                            </StackPanel>
+                                        </RadioButton>
+                                        <RadioButton Style="{StaticResource SubMenuButton}">
+                                            <StackPanel Orientation="Horizontal">
+                                                <fa:IconImage Icon="FileInvoiceDollar" Style="{StaticResource SubMenuIcon}" />
+                                                <TextBlock Text="Hóa đơn" Style="{StaticResource SubMenuText}" />
+                                            </StackPanel>
+                                        </RadioButton>
                                     </StackPanel>
                                 </Expander>
                             </StackPanel>
@@ -217,8 +287,64 @@
                             <fa:IconImage Icon="WindowMinimize" Style="{StaticResource controlbarIcon}"/>
                         </Button>
                     </StackPanel>
+
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="0"
+                                    Orientation="Horizontal"
+                                    VerticalAlignment="Center">
+                            <fa:IconImage Icon="Home"
+                                          Height="30"
+                                          Width="30"
+                                          Foreground="Black"
+                                          Margin="35,0,10,0" />
+
+                            <TextBlock Text="Trang chủ"
+                                       Foreground="Black"
+                                       FontSize="16"
+                                       FontFamily="Montserrat"
+                                       FontWeight="Medium"
+                                       VerticalAlignment="Center"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="1"
+                                    Orientation="Horizontal"
+                                    VerticalAlignment="Center"
+                                    FlowDirection="RightToLeft"
+                                    Margin="0,0,10,0">
+                            <Button Style="{StaticResource userIconButton}"
+                                    Tag="Gray">
+                                <fa:IconImage Icon="AngleDown" Style="{StaticResource userIcon}" />
+                            </Button>
+
+                            <TextBlock
+                                       Text="Phan Ngoc Son"
+                                       Foreground="Black"
+                                       FontFamily="Montserrat"
+                                       FontSize="16"
+                                       VerticalAlignment="Center" />
+
+                            <Ellipse Height="35" Width="35"
+                                     Stroke="Black"
+                                     StrokeThickness="1.5"
+                                     Margin="10,0,10,0">
+                                <Ellipse.Fill>
+                                    <ImageBrush ImageSource="/Images/hospital_logo.png"></ImageBrush>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                        </StackPanel>
+                    </Grid>
+
+                    <ContentControl Grid.Row="2"
+                                    Margin="10">
+
+                    </ContentControl>
                 </Grid>
             </Border>
         </Grid>
     </Border>
-    </Window>
+</Window>
