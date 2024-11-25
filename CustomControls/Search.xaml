@@ -11,10 +11,10 @@
                Text="Tìm kiếm:"
                HorizontalAlignment="Left"
                VerticalAlignment="Center"
-               FontSize="16"
-               Foreground="White"
-               FontWeight="Medium"
-               FontFamily="Montserrat"/>
+               FontSize="18"
+               Foreground="Black"
+               FontWeight="Bold"
+               FontFamily="Inter"/>
 
         <Border HorizontalAlignment="Right"
             Width="100"
@@ -26,13 +26,13 @@
                 Content="Tìm kiếm"
                 Background="Transparent"
                 Foreground="Black"
-                FontFamily="Montserrat"
-                FontWeight="Medium"
+                FontFamily="Inter"
+                FontWeight="Bold"
                 FontSize="16"
                 BorderThickness="0"/>
         </Border>
 
-        <Border Margin="95,0,150,0"
+        <Border Margin="100,0,150,0"
             BorderThickness="0"
             Background="White"
             CornerRadius="10">
@@ -43,7 +43,7 @@
                        FontSize="16"
                        Foreground="Gray"
                        FontWeight="Light"
-                       FontFamily="Montserrat"
+                       FontFamily="Inter"
                        Background="Transparent"
                        Padding="15,0,0,0"
                        Panel.ZIndex="-1"/>
@@ -53,7 +53,7 @@
                      FontSize="16"
                      Foreground="Black"
                      FontWeight="Medium"
-                     FontFamily="Montserrat"
+                     FontFamily="Inter"
                      Background="Transparent"
                      Padding="15,0,0,0"
                      BorderThickness="0"
