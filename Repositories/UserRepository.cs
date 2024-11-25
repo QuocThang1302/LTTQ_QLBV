@@ -27,7 +27,7 @@ namespace QuanLyBenhVien.Repositories
             {
                 connection.Open();
                 command.Connection = connection;
-                command.CommandText = "select * from BacSi where MaBacSi=@userID and MatKhau=@password";
+                command.CommandText = "select * from NhanVien where MaNhanVien=@userID and MatKhau=@password";
                 command.Parameters.Add("@userID", System.Data.SqlDbType.NVarChar).Value = credential.UserName;
                 command.Parameters.Add("@password", System.Data.SqlDbType.NVarChar).Value = credential.Password;
                 validUser = command.ExecuteScalar() == null ? false : true;
@@ -53,7 +53,7 @@ namespace QuanLyBenhVien.Repositories
             {
                 connection.Open();
                 command.Connection = connection;
-                command.CommandText = "select * from BacSi where MaBacSi=@userID";
+                command.CommandText = "select * from NhanVien where MaNhanVien=@userID";
                 command.Parameters.Add("@userID", System.Data.SqlDbType.NVarChar).Value = name;
                 using (var reader = command.ExecuteReader())
                 {
