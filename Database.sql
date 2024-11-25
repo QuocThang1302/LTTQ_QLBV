@@ -1,5 +1,6 @@
-CREATE DATABASE LTTQ
-USE LTTQ
+CREATE DATABASE BV
+USE BV
+
 CREATE TABLE CTHDVatDung (
   MaHoaDon VARCHAR(20),
   MaVatDung VARCHAR(20),
@@ -135,7 +136,7 @@ CREATE TABLE CTDonThuoc (
   MaDonThuoc VARCHAR(20),
   MaThuoc VARCHAR(20),
   SoLuong INT,
-  GiaTien DECIMAL(10,2),
+  GiaTien decimal(10,2),
   HuongDanSuDung TEXT,
   MaHoaDon VARCHAR(20),
   PRIMARY KEY (MaDonThuoc, MaThuoc)
@@ -235,7 +236,83 @@ GO
 
 ALTER TABLE DonThuoc ADD FOREIGN KEY (MaBacSi) REFERENCES NhanVien (MaNhanVien)
 GO
-  
+
+--Ràng buộc
+CREATE TRIGGER trg_LichHenKham_MaBacSi
+ON LichHenKham
+AFTER INSERT, UPDATE
+AS
+BEGIN
+    IF EXISTS (
+        SELECT 1
+        FROM inserted i
+        LEFT JOIN NhanVien nv ON i.MaBacSi = nv.MaNhanVien
+        WHERE nv.LoaiNhanVien != 'Bác sĩ'
+    )
+    BEGIN
+        RAISERROR ('MaBacSi phải thuộc về nhân viên là Bác sĩ.', 16, 1);
+        ROLLBACK TRANSACTION;
+    END
+END;
+GO
+
+CREATE TRIGGER trg_PhieuKhamBenh_MaBacSi
+ON PhieuKhamBenh
+AFTER INSERT, UPDATE
+AS
+BEGIN
+    IF EXISTS (
+        SELECT 1
+        FROM inserted i
+        LEFT JOIN NhanVien nv ON i.MaBacSi = nv.MaNhanVien
+        WHERE nv.LoaiNhanVien != 'Bác sĩ'
+    )
+    BEGIN
+        RAISERROR ('MaBacSi phải thuộc về nhân viên là Bác sĩ.', 16, 1);
+        ROLLBACK TRANSACTION;
+    END
+END;
+GO
+
+CREATE TRIGGER trg_DonThuoc_MaBacSi
+ON DonThuoc
+AFTER INSERT, UPDATE
+AS
+BEGIN
+    IF EXISTS (
+        SELECT 1
+        FROM inserted i
+        LEFT JOIN NhanVien nv ON i.MaBacSi = nv.MaNhanVien
+        WHERE nv.LoaiNhanVien != 'Bác sĩ'
+    )
+    BEGIN
+        RAISERROR ('MaBacSi phải thuộc về nhân viên là Bác sĩ.', 16, 1);
+        ROLLBACK TRANSACTION;
+    END
+END;
+GO
+
+CREATE TRIGGER trg_VatDung_MaQuanLy
+ON VatDung
+AFTER INSERT, UPDATE
+AS
+BEGIN
+    IF EXISTS (
+        SELECT 1
+        FROM inserted i
+        LEFT JOIN NhanVien nv ON i.MaQuanLy = nv.MaNhanVien
+        WHERE nv.LoaiNhanVien != 'Quản lý'
+    )
+    BEGIN
+        RAISERROR ('MaQuanLy phải thuộc về nhân viên là Quản lý.', 16, 1);
+        ROLLBACK TRANSACTION;
+    END
+END;
+GO
+
+
+
+
 --Dữ liệu mẫu 
 -- Role table 
 INSERT INTO Role (RoleID, TenRole) VALUES  
@@ -244,11 +321,10 @@ INSERT INTO Role (RoleID, TenRole) VALUES
  
 -- ChucNang table 
 INSERT INTO CongViec (MaCongViec, TenCongViec, MoTaCongViec, TrangThai, GhiChu) VALUES  
-('CN001', 'Thêm user mới', 'Thêm người dùng mới cho phần mềm', 'Đang thực hiện', 'Chỉ dành cho nhân viên quản lý'),
-('CN002', 'Tạo đơn thuốc', 'Tạo đơn thuốc cho các bệnh nhân', 'Đang thực hiện', 'Chỉ dành cho nhân viên bác sĩ '),
-('CN003',  'Phân công lịch trực', 'Phân công lịch trực cho các nhân viên', 'Đang thực hiện', 'Phân công theo lịch nghỉ của nhân viên'),
-('CN004', 'Cập nhât đơn thuốc', 'Cập nhật đơn thuốc mới cho bệnh nhân', 'Đã hoàn thành', 'Chỉ dành cho nhân viên bác sĩ');
-
+('CN001', 'Trực ngày 18/8/2024', 'Trực khoa nội', 'Đã hoàn thành', 'Trực cả ngày'),
+('CN002', 'Trực ngày 19/8/2024', 'Trực khoa ngoại', 'Đã hoàn thành', 'Trực ca sáng '),
+('CN003',  'Trực ngày 19/8/2024', 'Trực khoa nhi', 'Đang thực hiện', 'Trực ca chiều'),
+('CN004', 'Trực ngày 20/8/2024', 'Trực khoa tim mạch', 'Chưa thực hiện', 'Trực cả ngày');
 
 -- Vô hiệu hóa tất cả ràng buộc khóa ngoại
 ALTER TABLE NhanVien NOCHECK CONSTRAINT ALL;
@@ -270,14 +346,20 @@ INSERT INTO ChuyenNganh (MaChuyenNganh, TenChuyenNganh, Khoa) VALUES
 
 -- NhanVien table
 INSERT INTO NhanVien (MaNhanVien, Ho, Ten, MaChuyenNganh, RoleID, LoaiNhanVien, NgaySinh, GioiTinh, CCCD, DiaChi, SDT, Email, MatKhau) VALUES
-('NV001', 'Nguyen', 'Van A', 'CN01', 'R01', 'Quản lý', '1980-01-01', 'Nam', '123456789', 'Hà Nội', '0901234567', 'a@gmail.com', 'matkhau123'),
-('NV002', 'Tran', 'Thi B', 'CN02', 'R02', 'Bác sĩ', '1985-02-02', 'Nữ', '987654321', 'TP Hồ Chí Minh', '0912345678', 'b@gmail.com', 'matkhau456'),
-('NV003', 'Le', 'Van C', 'CN03', 'R02', 'Bác sĩ', '1990-03-03', 'Nam', '111111111', 'Đà Nẵng', '0923456789', 'c@gmail.com', 'matkhau789'),
-('NV004', 'Pham', 'Thi D', 'CN04', 'R01', 'Quản lý', '1988-04-04', 'Nữ', '222222222', 'Hải Phòng', '0934567890', 'd@gmail.com', 'matkhau012');
+('NV001', 'Nguyen', 'Van A', 'CN01', 'R01', 'Quản lý', '1980-01-01', 'Nam', '123456789', 'Hà Nội', '0901234567', 'a@gmail.com', '123'),
+('NV002', 'Tran', 'Thi B', 'CN02', 'R02', 'Bác sĩ', '1985-02-02', 'Nữ', '987654321', 'TP Hồ Chí Minh', '0912345678', 'b@gmail.com', '123'),
+('NV003', 'Le', 'Van C', 'CN03', 'R02', 'Bác sĩ', '1990-03-03', 'Nam', '111111111', 'Đà Nẵng', '0923456789', 'c@gmail.com', '123'),
+('NV004', 'Pham', 'Thi D', 'CN04', 'R01', 'Quản lý', '1988-04-04', 'Nữ', '222222222', 'Hải Phòng', '0934567890', 'd@gmail.com', '123');
 -- Kích hoạt lại các ràng buộc khóa ngoại
 ALTER TABLE NhanVien CHECK CONSTRAINT ALL;
 ALTER TABLE Khoa CHECK CONSTRAINT ALL;
 ALTER TABLE ChuyenNganh CHECK CONSTRAINT ALL;
+--LichTruc table
+INSERT INTO LichTruc (MaLichTruc, MaBacSi, NgayTruc, PhanCong) VALUES 
+('LT001', 'NV002', '2024-08-18', 'CN001'),
+('LT002', 'NV003', '2024-08-19', 'CN002'),
+('LT003', 'NV002', '2024-08-19', 'CN003'),
+('LT004', 'NV003', '2024-08-20', 'CN004');
 -- BenhNhan table
 INSERT INTO BenhNhan (MaBenhNhan, Ho, Ten, NgaySinh, GioiTinh, CCCD, NgheNghiep, DiaChi, SDT, Email, MaKhoa) VALUES
 ('BN001', 'Le', 'Thi C', '1990-03-03', 'Nữ', '123123123', 'Nhân viên văn phòng', 'Đà Nẵng', '0923456789', 'c@gmail.com', 'K01'),
@@ -333,3 +415,24 @@ INSERT INTO PhieuKhamBenh (MaPhieuKham, MaBenhNhan, NgayKham, LyDoKhamBenh, Kham
 ('PK002', 'BN002', '2024-01-02', 'Đau bụng', 'Nội soi', 'Đau dạ dày', 'Cần theo dõi', 'Điều chỉnh chế độ ăn', 'NV003'),
 ('PK003', 'BN003', '2024-01-03', 'Mệt mỏi', 'Xét nghiệm máu', 'Tiểu đường', 'Ổn định', 'Thay đổi lối sống', 'NV004'),
 ('PK004', 'BN004', '2024-01-04', 'Đau đầu', 'Đo huyết áp', 'Cao huyết áp', 'Đang điều trị', 'Dùng thuốc huyết áp', 'NV001');
+
+-- CTHDVatDung table
+INSERT INTO CTHDVatDung (MaHoaDon, MaVatDung, SoLuong, ThanhTien) VALUES
+('HD001', 'VD001', 10, 50000.00),
+('HD002', 'VD002', 5, 750000.00),
+('HD003', 'VD003', 2, 600000.00),
+('HD004', 'VD004', 1, 1000000.00);
+
+-- CTDonThuoc table
+INSERT INTO CTDonThuoc (MaDonThuoc, MaThuoc, SoLuong, GiaTien, HuongDanSuDung, MaHoaDon) VALUES
+('DT001', 'T001', 20, 40000.00, 'Uống 2 viên sau khi ăn', 'HD001'),
+('DT002', 'T002', 15, 15000.00, 'Uống 1 viên mỗi sáng', 'HD002'),
+('DT003', 'T003', 10, 50000.00, 'Uống 1 viên sau bữa tối', 'HD003'),
+('DT004', 'T004', 5, 15000.00, 'Uống 1 viên sau khi ăn', 'HD004');
+
+-- LichHenKham table
+INSERT INTO LichHenKham (MaLichHen, MaBenhNhan, NgayHenKham, MaBacSi) VALUES
+('LH001', 'BN001', '2024-02-01', 'NV002'),
+('LH002', 'BN002', '2024-02-02', 'NV003'),
+('LH003', 'BN003', '2024-02-03', 'NV004'),
+('LH004', 'BN004', '2024-02-04', 'NV001');
