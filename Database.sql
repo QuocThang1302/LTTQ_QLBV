@@ -45,7 +45,6 @@ CREATE TABLE CongViec (
   MaCongViec VARCHAR(20) PRIMARY KEY,
   TenCongViec VARCHAR(100),
   MoTaCongViec TEXT,
-  TrangThai VARCHAR(50),
   GhiChu TEXT
 )
 GO
@@ -54,7 +53,8 @@ CREATE TABLE LichTruc (
   MaLichTruc VARCHAR(20) PRIMARY KEY,
   MaBacSi VARCHAR(20),
   NgayTruc DATE,
-  PhanCong VARCHAR(20)
+  PhanCong VARCHAR(20),
+  TrangThai VARCHAR(50),
 )
 GO
 
@@ -319,12 +319,12 @@ INSERT INTO Role (RoleID, TenRole) VALUES
 ('R01', 'Admin'), 
 ('R02', 'Doctor');
  
--- ChucNang table 
-INSERT INTO CongViec (MaCongViec, TenCongViec, MoTaCongViec, TrangThai, GhiChu) VALUES  
-('CN001', 'Trực ngày 18/8/2024', 'Trực khoa nội', 'Đã hoàn thành', 'Trực cả ngày'),
-('CN002', 'Trực ngày 19/8/2024', 'Trực khoa ngoại', 'Đã hoàn thành', 'Trực ca sáng '),
-('CN003',  'Trực ngày 19/8/2024', 'Trực khoa nhi', 'Đang thực hiện', 'Trực ca chiều'),
-('CN004', 'Trực ngày 20/8/2024', 'Trực khoa tim mạch', 'Chưa thực hiện', 'Trực cả ngày');
+-- CongViec table 
+INSERT INTO CongViec (MaCongViec, TenCongViec, MoTaCongViec, GhiChu) VALUES  
+('CN001', 'Trực khoa nội', 'Thăm khám, điều trị bệnh nhân', 'Trực cả ngày'),
+('CN002', 'Trực khoa ngoại', 'Thăm khám, điều trị bệnh nhân', 'Trực ca sáng '),
+('CN003',  'Trực khoa nhi', 'Thăm khám, điều trị bệnh nhân', 'Trực ca chiều'),
+('CN004', 'Trực khoa tim mạch', 'Thăm khám, điều trị bệnh nhân', 'Trực cả ngày');
 
 -- Vô hiệu hóa tất cả ràng buộc khóa ngoại
 ALTER TABLE NhanVien NOCHECK CONSTRAINT ALL;
@@ -355,11 +355,11 @@ ALTER TABLE NhanVien CHECK CONSTRAINT ALL;
 ALTER TABLE Khoa CHECK CONSTRAINT ALL;
 ALTER TABLE ChuyenNganh CHECK CONSTRAINT ALL;
 --LichTruc table
-INSERT INTO LichTruc (MaLichTruc, MaBacSi, NgayTruc, PhanCong) VALUES 
-('LT001', 'NV002', '2024-08-18', 'CN001'),
-('LT002', 'NV003', '2024-08-19', 'CN002'),
-('LT003', 'NV002', '2024-08-19', 'CN003'),
-('LT004', 'NV003', '2024-08-20', 'CN004');
+INSERT INTO LichTruc (MaLichTruc, MaBacSi, NgayTruc, PhanCong, TrangThai) VALUES 
+('LT001', 'NV002', '2024-08-18', 'CN001', 'Đang thực hiện'),
+('LT002', 'NV003', '2024-08-19', 'CN002', 'Đang thực hiện'),
+('LT003', 'NV002', '2024-08-19', 'CN003', 'Đã hoàn thành'),
+('LT004', 'NV003', '2024-08-20', 'CN004', 'Chưa thực hiện');
 -- BenhNhan table
 INSERT INTO BenhNhan (MaBenhNhan, Ho, Ten, NgaySinh, GioiTinh, CCCD, NgheNghiep, DiaChi, SDT, Email, MaKhoa) VALUES
 ('BN001', 'Le', 'Thi C', '1990-03-03', 'Nữ', '123123123', 'Nhân viên văn phòng', 'Đà Nẵng', '0923456789', 'c@gmail.com', 'K01'),
