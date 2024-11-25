@@ -235,3 +235,101 @@ GO
 
 ALTER TABLE DonThuoc ADD FOREIGN KEY (MaBacSi) REFERENCES NhanVien (MaNhanVien)
 GO
+  
+--Dữ liệu mẫu 
+-- Role table 
+INSERT INTO Role (RoleID, TenRole) VALUES  
+('R01', 'Admin'), 
+('R02', 'Doctor');
+ 
+-- ChucNang table 
+INSERT INTO CongViec (MaCongViec, TenCongViec, MoTaCongViec, TrangThai, GhiChu) VALUES  
+('CN001', 'Thêm user mới', 'Thêm người dùng mới cho phần mềm', 'Đang thực hiện', 'Chỉ dành cho nhân viên quản lý'),
+('CN002', 'Tạo đơn thuốc', 'Tạo đơn thuốc cho các bệnh nhân', 'Đang thực hiện', 'Chỉ dành cho nhân viên bác sĩ '),
+('CN003',  'Phân công lịch trực', 'Phân công lịch trực cho các nhân viên', 'Đang thực hiện', 'Phân công theo lịch nghỉ của nhân viên'),
+('CN004', 'Cập nhât đơn thuốc', 'Cập nhật đơn thuốc mới cho bệnh nhân', 'Đã hoàn thành', 'Chỉ dành cho nhân viên bác sĩ');
+
+
+-- Vô hiệu hóa tất cả ràng buộc khóa ngoại
+ALTER TABLE NhanVien NOCHECK CONSTRAINT ALL;
+ALTER TABLE Khoa NOCHECK CONSTRAINT ALL;
+ALTER TABLE ChuyenNganh NOCHECK CONSTRAINT ALL;
+-- Khoa table
+INSERT INTO Khoa (MaKhoa, TenKhoa, TruongKhoa) VALUES
+('K01', 'Khoa Nội', 'NV003'),
+('K02', 'Khoa Ngoại', 'NV002'),
+('K03', 'Khoa Nhi', 'NV003'),
+('K04', 'Khoa Tim Mạch', 'NV002');
+
+-- ChuyenNganh table
+INSERT INTO ChuyenNganh (MaChuyenNganh, TenChuyenNganh, Khoa) VALUES
+('CN01', 'Tim Mạch', 'K04'),
+('CN02', 'Nhi Khoa', 'K03'),
+('CN03', 'Ngoại Thần Kinh', 'K02'),
+('CN04', 'Nội Tiết', 'K01');
+
+-- NhanVien table
+INSERT INTO NhanVien (MaNhanVien, Ho, Ten, MaChuyenNganh, RoleID, LoaiNhanVien, NgaySinh, GioiTinh, CCCD, DiaChi, SDT, Email, MatKhau) VALUES
+('NV001', 'Nguyen', 'Van A', 'CN01', 'R01', 'Quản lý', '1980-01-01', 'Nam', '123456789', 'Hà Nội', '0901234567', 'a@gmail.com', 'matkhau123'),
+('NV002', 'Tran', 'Thi B', 'CN02', 'R02', 'Bác sĩ', '1985-02-02', 'Nữ', '987654321', 'TP Hồ Chí Minh', '0912345678', 'b@gmail.com', 'matkhau456'),
+('NV003', 'Le', 'Van C', 'CN03', 'R02', 'Bác sĩ', '1990-03-03', 'Nam', '111111111', 'Đà Nẵng', '0923456789', 'c@gmail.com', 'matkhau789'),
+('NV004', 'Pham', 'Thi D', 'CN04', 'R01', 'Quản lý', '1988-04-04', 'Nữ', '222222222', 'Hải Phòng', '0934567890', 'd@gmail.com', 'matkhau012');
+-- Kích hoạt lại các ràng buộc khóa ngoại
+ALTER TABLE NhanVien CHECK CONSTRAINT ALL;
+ALTER TABLE Khoa CHECK CONSTRAINT ALL;
+ALTER TABLE ChuyenNganh CHECK CONSTRAINT ALL;
+-- BenhNhan table
+INSERT INTO BenhNhan (MaBenhNhan, Ho, Ten, NgaySinh, GioiTinh, CCCD, NgheNghiep, DiaChi, SDT, Email, MaKhoa) VALUES
+('BN001', 'Le', 'Thi C', '1990-03-03', 'Nữ', '123123123', 'Nhân viên văn phòng', 'Đà Nẵng', '0923456789', 'c@gmail.com', 'K01'),
+('BN002', 'Pham', 'Van D', '1995-04-04', 'Nam', '321321321', 'Sinh viên', 'Hải Phòng', '0934567890', 'd@gmail.com', 'K02'),
+('BN003', 'Nguyen', 'Thi E', '1988-05-05', 'Nữ', '456456456', 'Giáo viên', 'Cần Thơ', '0945678901', 'e@gmail.com', 'K03'),
+('BN004', 'Tran', 'Van F', '1992-06-06', 'Nam', '654654654', 'Kỹ sư', 'Quảng Ninh', '0956789012', 'f@gmail.com', 'K04');
+
+-- VatDung table
+INSERT INTO VatDung (MaVatDung, TenVatDung, MoTa, SoLuong, Gia, MaQuanLy) VALUES
+('VD001', 'Băng gạc', 'Băng gạc y tế', 100, 5000.00, 'NV001'),
+('VD002', 'Nhiệt kế', 'Nhiệt kế điện tử', 50, 150000.00, 'NV002'),
+('VD003', 'Ống nghe', 'Ống nghe y tế', 20, 300000.00, 'NV003'),
+('VD004', 'Máy đo huyết áp', 'Máy đo huyết áp tự động', 10, 1000000.00, 'NV004');
+
+-- HoaDon table
+INSERT INTO HoaDon (MaHoaDon, TenHoaDon, MaBenhNhan, MaNhanVien, NgayLapHoaDon, GiaTien, TrangThai) VALUES
+('HD001', 'Thanh toán khám bệnh', 'BN001', 'NV001', '2024-01-01', 500000.00, 'Đã thanh toán'),
+('HD002', 'Thanh toán xét nghiệm', 'BN002', 'NV002', '2024-01-02', 300000.00, 'Chưa thanh toán'),
+('HD003', 'Thanh toán thuốc', 'BN003', 'NV003', '2024-01-03', 400000.00, 'Đã thanh toán'),
+('HD004', 'Thanh toán dịch vụ', 'BN004', 'NV004', '2024-01-04', 600000.00, 'Chưa thanh toán');
+
+-- Thuoc table
+INSERT INTO Thuoc (MaThuoc, TenThuoc, CongDung, SoLuong, GiaTien, HanSuDung) VALUES
+('T001', 'Paracetamol', 'Giảm đau, hạ sốt', 200, 2000.00, '2025-01-01'),
+('T002', 'Vitamin C', 'Tăng sức đề kháng', 300, 1000.00, '2024-12-31'),
+('T003', 'Amoxicillin', 'Kháng sinh', 150, 5000.00, '2025-06-30'),
+('T004', 'Ibuprofen', 'Giảm đau, kháng viêm', 100, 3000.00, '2024-11-30');
+
+-- DonThuoc table
+INSERT INTO DonThuoc (MaDonThuoc, MaBenhNhan, MaBacSi, NgayLapDon) VALUES
+('DT001', 'BN001', 'NV002', '2024-01-01'),
+('DT002', 'BN002', 'NV003', '2024-01-02'),
+('DT003', 'BN003', 'NV004', '2024-01-03'),
+('DT004', 'BN004', 'NV001', '2024-01-04');
+
+-- Benh table
+INSERT INTO Benh (MaBenh, TenBenh, MoTa, TrieuChung) VALUES
+('B001', 'Cảm cúm', 'Nhiễm virus', 'Sốt, ho, đau họng'),
+('B002', 'Đau dạ dày', 'Viêm loét dạ dày', 'Đau bụng, buồn nôn'),
+('B003', 'Tiểu đường', 'Rối loạn đường huyết', 'Khát nước, sụt cân'),
+('B004', 'Cao huyết áp', 'Tăng áp lực máu', 'Chóng mặt, đau đầu');
+
+-- BenhAn table
+INSERT INTO BenhAn (MaBenhAn, MaBenhNhan, NgayTaoLap, Benh, TinhTrang, DieuTri) VALUES
+('BA001', 'BN001', '2024-01-01', 'B001', 'Đã khỏi', 'Nghỉ ngơi, uống thuốc'),
+('BA002', 'BN002', '2024-01-02', 'B002', 'Đang điều trị', 'Theo dõi, uống thuốc'),
+('BA003', 'BN003', '2024-01-03', 'B003', 'Ổn định', 'Chế độ ăn kiêng'),
+('BA004', 'BN004', '2024-01-04', 'B004', 'Đang điều trị', 'Sử dụng thuốc đều đặn');
+
+-- PhieuKhamBenh table
+INSERT INTO PhieuKhamBenh (MaPhieuKham, MaBenhNhan, NgayKham, LyDoKhamBenh, KhamLamSang, ChanDoan, KetQuaKham, DieuTri, MaBacSi) VALUES
+('PK001', 'BN001', '2024-01-01', 'Sốt cao', 'Kiểm tra nhiệt độ', 'Cảm cúm', 'Ổn định', 'Uống thuốc theo chỉ dẫn', 'NV002'),
+('PK002', 'BN002', '2024-01-02', 'Đau bụng', 'Nội soi', 'Đau dạ dày', 'Cần theo dõi', 'Điều chỉnh chế độ ăn', 'NV003'),
+('PK003', 'BN003', '2024-01-03', 'Mệt mỏi', 'Xét nghiệm máu', 'Tiểu đường', 'Ổn định', 'Thay đổi lối sống', 'NV004'),
+('PK004', 'BN004', '2024-01-04', 'Đau đầu', 'Đo huyết áp', 'Cao huyết áp', 'Đang điều trị', 'Dùng thuốc huyết áp', 'NV001');
