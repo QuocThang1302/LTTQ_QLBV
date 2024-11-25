@@ -1,0 +1,272 @@
+﻿<UserControl x:Class="QuanLyBenhVien.View.Thuoc"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:QuanLyBenhVien.View"
+             xmlns:customControls="clr-namespace:QuanLyBenhVien.CustomControls"
+             xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+             mc:Ignorable="d" 
+             d:DesignHeight="630" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="1.6*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <customControls:Search Margin="70,10,70,10"/>
+
+        <Border Grid.Row="1"
+                Margin="25,10,25,5"
+                BorderThickness="2"
+                BorderBrush="Black"
+                Background="Transparent"
+                CornerRadius="10">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition Height="1.1*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0"
+                           Text="Thông tin thuốc"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           FontSize="28"
+                           FontWeight="Bold"
+                           FontFamily="Inter"/>
+
+                <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="50,0,50,0">
+                    <TextBlock Text="Mã thuốc:"
+                                   VerticalAlignment="Center"
+                                   FontSize="20"
+                                   FontWeight="Bold"
+                                   FontFamily="Inter"/>
+
+                    <TextBox  x:Name="tbMaThuoc"
+                              Margin="20,15,20,15"
+                              Width="160">
+                        <TextBox.Style>
+                            <Style TargetType="TextBox">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="TextBox">
+                                            <Border Background="LightGray"
+                                                    CornerRadius="10">
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                    <TextBlock Text="Tên thuốc:"
+                               VerticalAlignment="Center"
+                               Margin="20,0,0,0"
+                               FontSize="20"
+                               FontWeight="Bold"
+                               FontFamily="Inter"/>
+
+                    <TextBox  x:Name="tbThuoc"
+                              Margin="20,15,0,15"
+                              Width="210">
+                        <TextBox.Style>
+                            <Style TargetType="TextBox">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="TextBox">
+                                            <Border Background="LightGray"
+                                                    CornerRadius="10">
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+                </StackPanel>
+
+                <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="50,0,50,0">
+                    <TextBlock Text="Công dụng:"
+                               VerticalAlignment="Center"
+                               FontSize="20"
+                               FontWeight="Bold"
+                               FontFamily="Inter"/>
+
+                    <TextBox  x:Name="tbCongDung"
+                              Margin="20,15,0,15"
+                              Width="514">
+                        <TextBox.Style>
+                            <Style TargetType="TextBox">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="TextBox">
+                                            <Border Background="LightGray"
+                                    CornerRadius="10">
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+                </StackPanel>
+
+                <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="50,0,50,0">
+                    <TextBlock Text="Số lượng:"
+                               VerticalAlignment="Center"
+                               FontSize="20"
+                               FontWeight="Bold"
+                               FontFamily="Inter"/>
+
+                    <TextBox  x:Name="tbSoLuong"
+                              Margin="20,15,20,15"
+                              Width="70">
+                        <TextBox.Style>
+                            <Style TargetType="TextBox">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="TextBox">
+                                            <Border Background="LightGray"
+                                                    CornerRadius="10">
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                    <TextBlock Text="Giá tiền:"
+                               VerticalAlignment="Center"
+                               Margin="10,0,0,0"
+                               FontSize="20"
+                               FontWeight="Bold"
+                               FontFamily="Inter"/>
+
+                    <TextBox  x:Name="tbGiaTien"
+                              Margin="20,15,0,15"
+                              Width="110">
+                        <TextBox.Style>
+                            <Style TargetType="TextBox">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="TextBox">
+                                            <Border Background="LightGray"
+                                                    CornerRadius="10">
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                    <TextBlock Text="HSD:"
+                               VerticalAlignment="Center"
+                               Margin="30,0,0,0"
+                               FontSize="20"
+                               FontWeight="Bold"
+                               FontFamily="Inter"/>
+
+                    <TextBox  x:Name="tbHSD"
+                              Margin="20,15,0,15"
+                              Width="127">
+                        <TextBox.Style>
+                            <Style TargetType="TextBox">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="TextBox">
+                                            <Border Background="LightGray"
+                                                    CornerRadius="10">
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+                </StackPanel>
+
+                <StackPanel Grid.Row="4" Orientation="Horizontal" FlowDirection="RightToLeft">
+                    <Button Style="{StaticResource childviewButton}" 
+                            Margin="52,0,0,0"
+                            Content="Xóa"/>
+
+                    <Button Style="{StaticResource childviewButton}" 
+                            Margin="52,0,0,0"
+                            Content="Cập nhật"/>
+                    
+                    <Button Style="{StaticResource childviewButton}" 
+                            Margin="52,0,0,0"
+                            Content="Thêm"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <Grid Grid.Row="2">
+            <StackPanel Margin="25,10,25,10">
+                <TextBlock Text="Danh sách thuốc"
+                           FontSize="18"
+                           FontWeight="Bold"
+                           FontFamily="Inter"
+                           Padding="20,0,0,0"/>
+
+                <DataGrid AutoGenerateColumns="False" 
+                          CanUserAddRows="False"
+                          CanUserDeleteRows="False"
+                          Margin="0,5,0,0"
+                          Height="170">
+                    <!-- Style cho header -->
+                    <DataGrid.ColumnHeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="LightBlue"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                            <Setter Property="FontFamily" Value="Inter"/>
+                            <Setter Property="FontSize" Value="14" />
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="Padding" Value="10"/>
+                        </Style>
+                    </DataGrid.ColumnHeaderStyle>
+
+                    <!-- Style cho row -->
+                    <DataGrid.RowStyle>
+                        <Style TargetType="DataGridRow">
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Background" Value="Gray"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGrid.RowStyle>
+
+                    <!-- Style cho cell -->
+                    <DataGrid.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="Padding" Value="5"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Background" Value="Gray"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGrid.CellStyle>
+
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Mã thuốc" Width="*"/>
+                        <DataGridTextColumn Header="Tên thuốc" Width="*"/>
+                        <DataGridTextColumn Header="Công dụng" Width="*"/>
+                        <DataGridTextColumn Header="Số lượng" Width="*"/>
+                        <DataGridTextColumn Header="Giá tiền" Width="*"/>
+                        <DataGridTextColumn Header="Hạn sử dụng" Width="*"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>
