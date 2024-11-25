@@ -54,7 +54,7 @@ CREATE TABLE LichTruc (
   MaBacSi VARCHAR(20),
   NgayTruc DATE,
   PhanCong VARCHAR(20),
-  TrangThai VARCHAR(50),
+  TrangThai VARCHAR(50)
 )
 GO
 
@@ -319,12 +319,12 @@ INSERT INTO Role (RoleID, TenRole) VALUES
 ('R01', 'Admin'), 
 ('R02', 'Doctor');
  
--- CongViec table 
+-- ChucNang table 
 INSERT INTO CongViec (MaCongViec, TenCongViec, MoTaCongViec, GhiChu) VALUES  
-('CN001', 'Trực khoa nội', 'Thăm khám, điều trị bệnh nhân', 'Trực cả ngày'),
-('CN002', 'Trực khoa ngoại', 'Thăm khám, điều trị bệnh nhân', 'Trực ca sáng '),
-('CN003',  'Trực khoa nhi', 'Thăm khám, điều trị bệnh nhân', 'Trực ca chiều'),
-('CN004', 'Trực khoa tim mạch', 'Thăm khám, điều trị bệnh nhân', 'Trực cả ngày');
+('CN001', 'Trực ngày 18/8/2024', 'Trực khoa nội', 'Trực cả ngày'),
+('CN002', 'Trực ngày 19/8/2024', 'Trực khoa ngoại', 'Trực ca sáng '),
+('CN003',  'Trực ngày 19/8/2024', 'Trực khoa nhi', 'Trực ca chiều'),
+('CN004', 'Trực ngày 20/8/2024', 'Trực khoa tim mạch', 'Trực cả ngày');
 
 -- Vô hiệu hóa tất cả ràng buộc khóa ngoại
 ALTER TABLE NhanVien NOCHECK CONSTRAINT ALL;
@@ -356,9 +356,9 @@ ALTER TABLE Khoa CHECK CONSTRAINT ALL;
 ALTER TABLE ChuyenNganh CHECK CONSTRAINT ALL;
 --LichTruc table
 INSERT INTO LichTruc (MaLichTruc, MaBacSi, NgayTruc, PhanCong, TrangThai) VALUES 
-('LT001', 'NV002', '2024-08-18', 'CN001', 'Đang thực hiện'),
-('LT002', 'NV003', '2024-08-19', 'CN002', 'Đang thực hiện'),
-('LT003', 'NV002', '2024-08-19', 'CN003', 'Đã hoàn thành'),
+('LT001', 'NV002', '2024-08-18', 'CN001', 'Đã hoàn thành'),
+('LT002', 'NV003', '2024-08-19', 'CN002', 'Đã hoàn thành'),
+('LT003', 'NV002', '2024-08-19', 'CN003', 'Đang thực hiện'),
 ('LT004', 'NV003', '2024-08-20', 'CN004', 'Chưa thực hiện');
 -- BenhNhan table
 INSERT INTO BenhNhan (MaBenhNhan, Ho, Ten, NgaySinh, GioiTinh, CCCD, NgheNghiep, DiaChi, SDT, Email, MaKhoa) VALUES
