@@ -10,7 +10,19 @@
     <Compile Update="CustomControls\BindablePasswordBox.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="CustomControls\Search.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\HoaDon.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\LoginView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Thuoc.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\VatDung.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -18,13 +30,25 @@
     <Page Update="CustomControls\BindablePasswordBox.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="CustomControls\Search.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Styles\ButtonStyles.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\HoaDon.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\LoginView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Thuoc.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\VatDung.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
