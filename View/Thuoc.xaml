@@ -48,7 +48,7 @@
                                    FontFamily="Inter"/>
 
                     <TextBox  x:Name="tbMaThuoc"
-                              Margin="20,15,20,15"
+                              Margin="20"
                               Width="160">
                         <TextBox.Style>
                             <Style TargetType="TextBox">
@@ -56,7 +56,7 @@
                                     <Setter.Value>
                                         <ControlTemplate TargetType="TextBox">
                                             <Border Background="LightGray"
-                                                    CornerRadius="10">
+                                                    CornerRadius="5">
                                             </Border>
                                         </ControlTemplate>
                                     </Setter.Value>
@@ -73,7 +73,7 @@
                                FontFamily="Inter"/>
 
                     <TextBox  x:Name="tbThuoc"
-                              Margin="20,15,0,15"
+                              Margin="20"
                               Width="210">
                         <TextBox.Style>
                             <Style TargetType="TextBox">
@@ -81,7 +81,7 @@
                                     <Setter.Value>
                                         <ControlTemplate TargetType="TextBox">
                                             <Border Background="LightGray"
-                                                    CornerRadius="10">
+                                                    CornerRadius="5">
                                             </Border>
                                         </ControlTemplate>
                                     </Setter.Value>
@@ -99,7 +99,7 @@
                                FontFamily="Inter"/>
 
                     <TextBox  x:Name="tbCongDung"
-                              Margin="20,15,0,15"
+                              Margin="20"
                               Width="514">
                         <TextBox.Style>
                             <Style TargetType="TextBox">
@@ -107,7 +107,7 @@
                                     <Setter.Value>
                                         <ControlTemplate TargetType="TextBox">
                                             <Border Background="LightGray"
-                                    CornerRadius="10">
+                                                    CornerRadius="5">
                                             </Border>
                                         </ControlTemplate>
                                     </Setter.Value>
@@ -125,7 +125,7 @@
                                FontFamily="Inter"/>
 
                     <TextBox  x:Name="tbSoLuong"
-                              Margin="20,15,20,15"
+                              Margin="20"
                               Width="70">
                         <TextBox.Style>
                             <Style TargetType="TextBox">
@@ -133,7 +133,7 @@
                                     <Setter.Value>
                                         <ControlTemplate TargetType="TextBox">
                                             <Border Background="LightGray"
-                                                    CornerRadius="10">
+                                                    CornerRadius="5">
                                             </Border>
                                         </ControlTemplate>
                                     </Setter.Value>
@@ -150,15 +150,15 @@
                                FontFamily="Inter"/>
 
                     <TextBox  x:Name="tbGiaTien"
-                              Margin="20,15,0,15"
-                              Width="110">
+                              Margin="20"
+                              Width="90">
                         <TextBox.Style>
                             <Style TargetType="TextBox">
                                 <Setter Property="Template">
                                     <Setter.Value>
                                         <ControlTemplate TargetType="TextBox">
                                             <Border Background="LightGray"
-                                                    CornerRadius="10">
+                                                    CornerRadius="5">
                                             </Border>
                                         </ControlTemplate>
                                     </Setter.Value>
@@ -175,7 +175,7 @@
                                FontFamily="Inter"/>
 
                     <TextBox  x:Name="tbHSD"
-                              Margin="20,15,0,15"
+                              Margin="20"
                               Width="127">
                         <TextBox.Style>
                             <Style TargetType="TextBox">
@@ -183,7 +183,7 @@
                                     <Setter.Value>
                                         <ControlTemplate TargetType="TextBox">
                                             <Border Background="LightGray"
-                                                    CornerRadius="10">
+                                                    CornerRadius="5">
                                             </Border>
                                         </ControlTemplate>
                                     </Setter.Value>
@@ -215,7 +215,8 @@
                            FontSize="18"
                            FontWeight="Bold"
                            FontFamily="Inter"
-                           Padding="20,0,0,0"/>
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"/>
 
                 <DataGrid AutoGenerateColumns="False" 
                           CanUserAddRows="False"
