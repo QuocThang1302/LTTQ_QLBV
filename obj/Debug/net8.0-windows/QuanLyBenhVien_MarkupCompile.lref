@@ -1,6 +1,13 @@
-﻿D:\LTTQ\git_test\QuanLyBenhVien\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs
-FD:\LTTQ\git_test\QuanLyBenhVien\App.xaml;;
-FD:\LTTQ\git_test\QuanLyBenhVien\CustomControls\BindablePasswordBox.xaml;;
-FD:\LTTQ\git_test\QuanLyBenhVien\View\LoginView.xaml;;
-FD:\LTTQ\git_test\QuanLyBenhVien\View\MainWindow.xaml;;
+﻿
+FD:\LTTQ\DoAnLTTQ1\LTTQ_QLBV\App.xaml;;
+FD:\LTTQ\DoAnLTTQ1\LTTQ_QLBV\CustomControls\BindablePasswordBox.xaml;;
+FD:\LTTQ\DoAnLTTQ1\LTTQ_QLBV\CustomControls\Search.xaml;;
+FD:\LTTQ\DoAnLTTQ1\LTTQ_QLBV\View\BenhAn.xaml;;
+FD:\LTTQ\DoAnLTTQ1\LTTQ_QLBV\View\LoginView.xaml;;
+FD:\LTTQ\DoAnLTTQ1\LTTQ_QLBV\View\MainWindow.xaml;;
+FD:\LTTQ\DoAnLTTQ1\LTTQ_QLBV\View\ThongTinBenhNhan.xaml;;
+FD:\LTTQ\DoAnLTTQ1\LTTQ_QLBV\View\ThongTinNhanVien.xaml;;
+FD:\LTTQ\DoAnLTTQ1\LTTQ_QLBV\View\Thuoc.xaml;;
+FD:\LTTQ\DoAnLTTQ1\LTTQ_QLBV\View\VatDung.xaml;;
+FD:\LTTQ\DoAnLTTQ1\LTTQ_QLBV\View\PhieuKhamBenhh.xaml;;
 

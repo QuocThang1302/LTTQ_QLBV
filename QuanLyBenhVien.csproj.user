@@ -10,7 +10,22 @@
     <Compile Update="CustomControls\BindablePasswordBox.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\BenhAn.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\LoginView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\PhieuKhamBenhh.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\ThongTinBenh.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\ThongTinBenhNhan.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\ThongTinNhanVien.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -21,10 +36,31 @@
     <Page Update="Styles\ButtonStyles.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Styles\TextBlockStyles.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\TextBoxStyles.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\BenhAn.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\LoginView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\PhieuKhamBenhh.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\ThongTinBenh.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\ThongTinBenhNhan.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\ThongTinNhanVien.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\LTTQ\git_test\QuanLyBenhVien\obj\Debug\net8.0-windows\
+D:\LTTQ\DoAnLTTQ1\LTTQ_QLBV\obj\Debug\net8.0-windows\
 QuanLyBenhVien
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-D:\LTTQ\git_test\QuanLyBenhVien\App.xaml
-4-351570951
+D:\LTTQ\DoAnLTTQ1\LTTQ_QLBV\App.xaml
+14-195667925
 
-17-699582691
+25-2095596178
 225-1913974820
-CustomControls\BindablePasswordBox.xaml;Styles\ButtonStyles.xaml;View\LoginView.xaml;View\MainWindow.xaml;
+CustomControls\BindablePasswordBox.xaml;CustomControls\Search.xaml;Styles\ButtonStyles.xaml;Styles\TextBlockStyles.xaml;Styles\TextBoxStyles.xaml;View\BenhAn.xaml;View\LoginView.xaml;View\MainWindow.xaml;View\PhieuKhamBenhh.xaml;View\ThongTinBenh.xaml;View\ThongTinBenhNhan.xaml;View\ThongTinNhanVien.xaml;View\Thuoc.xaml;View\VatDung.xaml;
 
 True
 
