@@ -4,17 +4,30 @@
 winexe
 C#
 .cs
+<<<<<<< HEAD
 C:\Users\Son Phan\Documents\GitHub\LTTQ_QLBV\obj\Debug\net8.0-windows\
+=======
+D:\LTTQ\DoAnLTTQ1\LTTQ_QLBV\obj\Debug\net8.0-windows\
+>>>>>>> bbb652c02fddaaba54a5aa776fdc12e69128f57a
 QuanLyBenhVien
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
+<<<<<<< HEAD
 C:\Users\Son Phan\Documents\GitHub\LTTQ_QLBV\App.xaml
 8-1922557058
 
 21971386757
 22533230065
 CustomControls\BindablePasswordBox.xaml;CustomControls\Search.xaml;Styles\ButtonStyles.xaml;View\HoaDon.xaml;View\LoginView.xaml;View\MainWindow.xaml;View\Thuoc.xaml;View\VatDung.xaml;
+=======
+D:\LTTQ\DoAnLTTQ1\LTTQ_QLBV\App.xaml
+131088805899
+
+26212523172
+225-1913974820
+CustomControls\BindablePasswordBox.xaml;CustomControls\Search.xaml;Styles\ButtonStyles.xaml;View\BenhAn.xaml;View\HoaDon.xaml;View\LoginView.xaml;View\MainWindow.xaml;View\PhieuKhamBenh.xaml;View\ThongTinBenh.xaml;View\ThongTinBenhNhan.xaml;View\ThongTinNhanVien.xaml;View\Thuoc.xaml;View\VatDung.xaml;
+>>>>>>> bbb652c02fddaaba54a5aa776fdc12e69128f57a
 
 True
 

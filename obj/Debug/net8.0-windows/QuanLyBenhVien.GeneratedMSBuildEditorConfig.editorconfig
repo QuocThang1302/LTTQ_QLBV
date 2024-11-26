@@ -8,6 +8,10 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = QuanLyBenhVien
+<<<<<<< HEAD
 build_property.ProjectDir = C:\Users\Son Phan\Documents\GitHub\LTTQ_QLBV\
+=======
+build_property.ProjectDir = D:\LTTQ\DoAnLTTQ1\LTTQ_QLBV\
+>>>>>>> bbb652c02fddaaba54a5aa776fdc12e69128f57a
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

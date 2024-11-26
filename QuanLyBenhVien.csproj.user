@@ -10,19 +10,36 @@
     <Compile Update="CustomControls\BindablePasswordBox.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+<<<<<<< HEAD
     <Compile Update="CustomControls\Search.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\HoaDon.xaml.cs">
+=======
+    <Compile Update="View\BenhAn.xaml.cs">
+>>>>>>> bbb652c02fddaaba54a5aa776fdc12e69128f57a
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\LoginView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+<<<<<<< HEAD
     <Compile Update="View\Thuoc.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\VatDung.xaml.cs">
+=======
+    <Compile Update="View\PhieuKhamBenh.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\ThongTinBenh.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\ThongTinBenhNhan.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\ThongTinNhanVien.xaml.cs">
+>>>>>>> bbb652c02fddaaba54a5aa776fdc12e69128f57a
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -36,7 +53,11 @@
     <Page Update="Styles\ButtonStyles.xaml">
       <SubType>Designer</SubType>
     </Page>
+<<<<<<< HEAD
     <Page Update="View\HoaDon.xaml">
+=======
+    <Page Update="View\BenhAn.xaml">
+>>>>>>> bbb652c02fddaaba54a5aa776fdc12e69128f57a
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\LoginView.xaml">
@@ -45,10 +66,23 @@
     <Page Update="View\MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+<<<<<<< HEAD
     <Page Update="View\Thuoc.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\VatDung.xaml">
+=======
+    <Page Update="View\PhieuKhamBenh.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\ThongTinBenh.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\ThongTinBenhNhan.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\ThongTinNhanVien.xaml">
+>>>>>>> bbb652c02fddaaba54a5aa776fdc12e69128f57a
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

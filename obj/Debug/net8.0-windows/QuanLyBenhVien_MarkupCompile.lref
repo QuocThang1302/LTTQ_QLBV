@@ -1,4 +1,5 @@
 ﻿
+<<<<<<< HEAD
 FC:\Users\Son Phan\Documents\GitHub\LTTQ_QLBV\App.xaml;;
 FC:\Users\Son Phan\Documents\GitHub\LTTQ_QLBV\CustomControls\BindablePasswordBox.xaml;;
 FC:\Users\Son Phan\Documents\GitHub\LTTQ_QLBV\CustomControls\Search.xaml;;
@@ -7,4 +8,19 @@ FC:\Users\Son Phan\Documents\GitHub\LTTQ_QLBV\View\MainWindow.xaml;;
 FC:\Users\Son Phan\Documents\GitHub\LTTQ_QLBV\View\Thuoc.xaml;;
 FC:\Users\Son Phan\Documents\GitHub\LTTQ_QLBV\View\HoaDon.xaml;;
 FC:\Users\Son Phan\Documents\GitHub\LTTQ_QLBV\View\VatDung.xaml;;
+=======
+FD:\LTTQ\DoAnLTTQ1\LTTQ_QLBV\App.xaml;;
+FD:\LTTQ\DoAnLTTQ1\LTTQ_QLBV\CustomControls\BindablePasswordBox.xaml;;
+FD:\LTTQ\DoAnLTTQ1\LTTQ_QLBV\CustomControls\Search.xaml;;
+FD:\LTTQ\DoAnLTTQ1\LTTQ_QLBV\View\HoaDon.xaml;;
+FD:\LTTQ\DoAnLTTQ1\LTTQ_QLBV\View\LoginView.xaml;;
+FD:\LTTQ\DoAnLTTQ1\LTTQ_QLBV\View\MainWindow.xaml;;
+FD:\LTTQ\DoAnLTTQ1\LTTQ_QLBV\View\ThongTinNhanVien.xaml;;
+FD:\LTTQ\DoAnLTTQ1\LTTQ_QLBV\View\Thuoc.xaml;;
+FD:\LTTQ\DoAnLTTQ1\LTTQ_QLBV\View\VatDung.xaml;;
+FD:\LTTQ\DoAnLTTQ1\LTTQ_QLBV\View\BenhAn.xaml;;
+FD:\LTTQ\DoAnLTTQ1\LTTQ_QLBV\View\PhieuKhamBenh.xaml;;
+FD:\LTTQ\DoAnLTTQ1\LTTQ_QLBV\View\ThongTinBenh.xaml;;
+FD:\LTTQ\DoAnLTTQ1\LTTQ_QLBV\View\ThongTinBenhNhan.xaml;;
+>>>>>>> bbb652c02fddaaba54a5aa776fdc12e69128f57a
 

@@ -1883,11 +1883,19 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\Son Phan\\Documents\\GitHub\\LTTQ_QLBV\\QuanLyBenhVien.csproj",
       "projectName": "QuanLyBenhVien",
       "projectPath": "C:\\Users\\Son Phan\\Documents\\GitHub\\LTTQ_QLBV\\QuanLyBenhVien.csproj",
       "packagesPath": "C:\\Users\\Son Phan\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Son Phan\\Documents\\GitHub\\LTTQ_QLBV\\obj\\",
+=======
+      "projectUniqueName": "D:\\LTTQ\\DoAnLTTQ1\\LTTQ_QLBV\\QuanLyBenhVien.csproj",
+      "projectName": "QuanLyBenhVien",
+      "projectPath": "D:\\LTTQ\\DoAnLTTQ1\\LTTQ_QLBV\\QuanLyBenhVien.csproj",
+      "packagesPath": "C:\\Users\\QuocThang\\.nuget\\packages\\",
+      "outputPath": "D:\\LTTQ\\DoAnLTTQ1\\LTTQ_QLBV\\obj\\",
+>>>>>>> bbb652c02fddaaba54a5aa776fdc12e69128f57a
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Son Phan\\AppData\\Roaming\\NuGet\\NuGet.Config",
