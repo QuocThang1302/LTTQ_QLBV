@@ -1,70 +1,42 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp">
-    <!-- Control bar button-->
-    <Style x:Key="controlbarButton" TargetType="Button">
-        <Setter Property="Width" Value="30" />
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Foreground" Value="#de634a" />
+
+    <!-- 1. Control bar button (Nút Đóng/Thu nhỏ góc trên cửa sổ) -->
+    <Style x:Key="controlbarButton"
+            TargetType="Button">
+        <Setter Property="Width"
+                Value="36"/>
+        <Setter Property="Height"
+                Value="28"/>
+        <Setter Property="Background"
+                Value="Transparent"/>
+        <Setter Property="Foreground"
+                Value="#A0AABF"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border Background="{TemplateBinding Background}"
-                        CornerRadius="4">
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                    </Border>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-
-        <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#e32415" />
-                <Setter Property="Foreground" Value="{Binding Path=Tag, RelativeSource={RelativeSource Self}}" />
-            </Trigger>
-        </Style.Triggers>
-    </Style>
-
-    <!-- Control bar icon-->
-    <Style x:Key="controlbarIcon" TargetType="fa:IconImage">
-        <Setter Property="Foreground" Value="White" />
-        <Setter Property="Width" Value="10" />
-        <Setter Property="Height" Value="10" />
-    </Style>
-
-    <!-- Style cho Button trong submenu -->
-    <Style x:Key="SubMenuButton" TargetType="RadioButton">
-        <Setter Property="Height" Value="30"/>
-        <Setter Property="Width" Value="200" />
-        <Setter Property="Margin" Value="-5,0,0,5" />
-        <Setter Property="Background" Value="#6CABEA"/>
-        <Setter Property="Foreground" Value="White"/>
-        <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="HorizontalAlignment" Value="Left" />
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="RadioButton">
-                    <Border Background="{TemplateBinding Background}"
-                    BorderBrush="{TemplateBinding BorderBrush}"
-                    CornerRadius="0,20,20,0"
-                    BorderThickness="4,0,0,0">
-                        <ContentPresenter HorizontalAlignment="Left" 
-                                    VerticalAlignment="Center"
-                                    Margin="30,0,0,0"/>
+                    <Border x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="6"
+                            SnapsToDevicePixels="True">
+                        <ContentPresenter HorizontalAlignment="Center"
+                                VerticalAlignment="Center"/>
                     </Border>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Margin" Value="0,0,0,5"/>
-                            <Setter Property="Background" Value="#1E8CFB"/>
-                            <Setter Property="Foreground" Value="Black"/>
-                            <Setter Property="BorderBrush" Value="#03045e"/>
+                        <Trigger Property="IsMouseOver"
+                                Value="True">
+                            <Setter TargetName="border"
+                                    Property="Background"
+                                    Value="#E81123"/>
+                            <Setter Property="Foreground"
+                                    Value="White"/>
                         </Trigger>
-
-                        <Trigger Property="IsChecked" Value="True">
-                            <Setter Property="Margin" Value="0,0,0,5"/>
-                            <Setter Property="Background" Value="#1E8CFB"/>
-                            <Setter Property="Foreground" Value="Black"/>
-                            <Setter Property="BorderBrush" Value="#03045e"/>
+                        <Trigger Property="IsPressed"
+                                Value="True">
+                            <Setter TargetName="border"
+                                    Property="Background"
+                                    Value="#C70F1E"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -72,102 +44,244 @@
         </Setter>
     </Style>
 
-    <!-- Style cho Icon trong Menu-->
-    <Style x:Key="MenuIcon" TargetType="fa:IconImage">
-        <Setter Property="Foreground" Value="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType=RadioButton}}" />
-        <Setter Property="Width" Value="30" />
-        <Setter Property="Height" Value="30" />
-        <Setter Property="Margin" Value="5,0,10,0" />
+    <!-- Control bar icon -->
+    <Style x:Key="controlbarIcon"
+            TargetType="fa:IconImage">
+        <Setter Property="Foreground"
+                Value="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType=Button}}"/>
+        <Setter Property="Width"
+                Value="11"/>
+        <Setter Property="Height"
+                Value="11"/>
     </Style>
 
-    <!-- Style cho TextBlock trong Menu-->
-    <Style x:Key="MenuText" TargetType="TextBlock">
-        <Setter Property="Foreground" Value="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType=RadioButton}}" />
-        <Setter Property="FontFamily" Value="Montserrat" />
-        <Setter Property="FontWeight" Value="Medium" />
-        <Setter Property="FontSize" Value="16" />
-        <Setter Property="VerticalAlignment" Value="Center" />
+    <!-- 2. Style cho Button trong Submenu (Pill / Floating Card Style) -->
+    <Style x:Key="SubMenuButton"
+            TargetType="RadioButton">
+        <Setter Property="Height"
+                Value="36"/>
+        <Setter Property="Width"
+                Value="190"/>
+        <Setter Property="Margin"
+                Value="5,2,5,2"/>
+        <Setter Property="Background"
+                Value="Transparent"/>
+        <Setter Property="Foreground"
+                Value="#64748B"/>
+        <Setter Property="BorderThickness"
+                Value="0"/>
+        <Setter Property="HorizontalAlignment"
+                Value="Left"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RadioButton">
+                    <Border x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="10"
+                            Padding="15,0,0,0">
+                        <ContentPresenter HorizontalAlignment="Left"
+                                VerticalAlignment="Center"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver"
+                                Value="True">
+                            <Setter TargetName="border"
+                                    Property="Background"
+                                    Value="#F1F5F9"/>
+                            <Setter Property="Foreground"
+                                    Value="#0F172A"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked"
+                                Value="True">
+                            <Setter TargetName="border"
+                                    Property="Background"
+                                    Value="#2563EB"/>
+                            <Setter Property="Foreground"
+                                    Value="White"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
 
-    <!-- Style cho Icon trong SubMenu-->
-    <Style x:Key="SubMenuIcon" TargetType="fa:IconImage">
-        <Setter Property="Foreground" Value="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType=RadioButton}}" />
-        <Setter Property="Width" Value="20" />
-        <Setter Property="Height" Value="20" />
-        <Setter Property="Margin" Value="10,0,10,0" />
+    <!-- Style Icon & Text SubMenu -->
+    <Style x:Key="SubMenuIcon"
+            TargetType="fa:IconImage">
+        <Setter Property="Foreground"
+                Value="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType=RadioButton}}"/>
+        <Setter Property="Width"
+                Value="16"/>
+        <Setter Property="Height"
+                Value="16"/>
+        <Setter Property="Margin"
+                Value="0,0,12,0"/>
     </Style>
 
-    <!-- Style cho TextBlock trong SubMenu-->
-    <Style x:Key="SubMenuText" TargetType="TextBlock">
-        <Setter Property="Foreground" Value="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType=RadioButton}}" />
-        <Setter Property="FontFamily" Value="Montserrat" />
-        <Setter Property="FontWeight" Value="Medium" />
-        <Setter Property="FontSize" Value="14" />
-        <Setter Property="VerticalAlignment" Value="Center" />
+    <Style x:Key="SubMenuText"
+            TargetType="TextBlock">
+        <Setter Property="Foreground"
+                Value="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType=RadioButton}}"/>
+        <Setter Property="FontFamily"
+                Value="Segoe UI"/>
+        <Setter Property="FontWeight"
+                Value="SemiBold"/>
+        <Setter Property="FontSize"
+                Value="13"/>
+        <Setter Property="VerticalAlignment"
+                Value="Center"/>
     </Style>
 
-    <!-- user icon button-->
-    <Style x:Key="userIconButton" TargetType="Button">
-        <Setter Property="Cursor" Value="Hand" />
-        <Setter Property="Width" Value="30" />
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Foreground" Value="LightGray" />
+    <!-- 3. Child view button (Nút bấm hành động chính - Primary Action Button) -->
+    <Style x:Key="childviewButton"
+            TargetType="Button">
+        <Setter Property="FontFamily"
+                Value="Segoe UI"/>
+        <Setter Property="FontSize"
+                Value="14"/>
+        <Setter Property="FontWeight"
+                Value="SemiBold"/>
+        <Setter Property="Foreground"
+                Value="White"/>
+        <Setter Property="Background"
+                Value="#2563EB"/>
+        <Setter Property="HorizontalAlignment"
+                Value="Center"/>
+        <Setter Property="VerticalAlignment"
+                Value="Center"/>
+        <Setter Property="Height"
+                Value="38"/>
+        <Setter Property="Width"
+                Value="110"/>
+        <Setter Property="Cursor"
+                Value="Hand"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border Background="{TemplateBinding Background}">
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                    </Border>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-
-        <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Foreground" Value="{Binding Path=Tag, RelativeSource={RelativeSource Self}}" />
-            </Trigger>
-        </Style.Triggers>
-    </Style>
-
-    <!-- Control bar icon-->
-    <Style x:Key="userIcon" TargetType="fa:IconImage">
-        <Setter Property="Foreground" Value="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType=Button}}" />
-        <Setter Property="Width" Value="16" />
-        <Setter Property="Height" Value="16" />
-    </Style>
-    
-    <!-- Child view button-->
-    <Style x:Key="childviewButton" TargetType="Button">
-        <Setter Property="FontFamily" Value="Inter" />
-        <Setter Property="FontSize" Value="16" />
-        <Setter Property="FontWeight" Value="Bold" />
-        <Setter Property="HorizontalAlignment" Value="Center" />
-        <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="Height" Value="40" />
-        <Setter Property="Width" Value="100" />
-        <Setter Property="Template" >
-            <Setter.Value>
-                <ControlTemplate TargetType="Button">
-                    <Border Background="LightGray"
-                            CornerRadius="10">
+                    <Border x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="8">
                         <ContentPresenter HorizontalAlignment="Center"
-                                          VerticalAlignment="Center"/>
+                                VerticalAlignment="Center"/>
                     </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver"
+                                Value="True">
+                            <Setter TargetName="border"
+                                    Property="Background"
+                                    Value="#1D4ED8"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed"
+                                Value="True">
+                            <Setter TargetName="border"
+                                    Property="Background"
+                                    Value="#1E40AF"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
-    <Style x:Key="TextBoxStyles" TargetType="TextBox">
-        <Setter Property="Width" Value="190" />
-        <Setter Property="Height" Value="30"/>
+
+    <!-- 4. TextBox Style (Thêm hiệu ứng viền Focus & sửa lỗi nhập liệu) -->
+    <Style x:Key="TextBoxStyles"
+            TargetType="TextBox">
+        <Setter Property="Width"
+                Value="190"/>
+        <Setter Property="Height"
+                Value="34"/>
+        <Setter Property="Padding"
+                Value="10,0,10,0"/>
+        <Setter Property="VerticalContentAlignment"
+                Value="Center"/>
+        <Setter Property="Background"
+                Value="#F8FAFC"/>
+        <Setter Property="BorderBrush"
+                Value="#CBD5E1"/>
+        <Setter Property="BorderThickness"
+                Value="1"/>
+        <Setter Property="Foreground"
+                Value="#1E293B"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="TextBox">
-                    <Border Background="LightGray"
-             CornerRadius="5">
+                    <Border x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="6">
+                        <!-- Cần SrollViewer để hiển thị chữ khi gõ -->
+                        <ScrollViewer x:Name="PART_ContentHost"
+                                Focusable="false"
+                                HorizontalScrollBarVisibility="Hidden"
+                                VerticalScrollBarVisibility="Hidden"/>
                     </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver"
+                                Value="True">
+                            <Setter TargetName="border"
+                                    Property="BorderBrush"
+                                    Value="#94A3B8"/>
+                        </Trigger>
+                        <Trigger Property="IsFocused"
+                                Value="True">
+                            <Setter TargetName="border"
+                                    Property="BorderBrush"
+                                    Value="#2563EB"/>
+                            <Setter TargetName="border"
+                                    Property="Background"
+                                    Value="#FFFFFF"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+    </Style>
+
+    <!-- User icon button -->
+    <Style x:Key="userIconButton"
+            TargetType="Button">
+        <Setter Property="Cursor"
+                Value="Hand"/>
+        <Setter Property="Width"
+                Value="32"/>
+        <Setter Property="Height"
+                Value="32"/>
+        <Setter Property="Background"
+                Value="Transparent"/>
+        <Setter Property="Foreground"
+                Value="#64748B"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="16">
+                        <ContentPresenter HorizontalAlignment="Center"
+                                VerticalAlignment="Center"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver"
+                                Value="True">
+                            <Setter TargetName="border"
+                                    Property="Background"
+                                    Value="#F1F5F9"/>
+                            <Setter Property="Foreground"
+                                    Value="#0F172A"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="userIcon"
+            TargetType="fa:IconImage">
+        <Setter Property="Foreground"
+                Value="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType=Button}}"/>
+        <Setter Property="Width"
+                Value="16"/>
+        <Setter Property="Height"
+                Value="16"/>
     </Style>
 </ResourceDictionary>
